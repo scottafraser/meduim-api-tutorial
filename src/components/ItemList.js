@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { itemsFetchData } from "../actions/items";
+
+
+
 class ItemList extends Component {
   constructor() {
     super();
@@ -63,4 +68,19 @@ componentDidMount() {
     );
   }
 }
-export default ItemList;
+
+const mapStateToProps = (state) => {
+    return {
+        items: state.items,
+        hasErrored: state.itemsHasErrored,
+        isLoading: state.ItemisLoading
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchData: (url) => dispatch(itemsFetchData(url))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
