@@ -1,15 +1,14 @@
-import { itemIsLoading } from "../actions/items";
+// import { itemIsLoading } from "../actions/items";
 
-export function itemHasErrored(state = false, action) {
+export function itemsHasErrored(state = false, action) {
     switch(action.type) {
         case 'ITEM_HAS_ERRORED':
-
         default:
             return state;
     }
 }
 
-export function itemIsLoading(state = false, action) {
+export function itemsIsLoading(state = false, action) {
     switch (action.type) {
         case 'ITEM_IS_LOADING':
             return action.isLoading;
